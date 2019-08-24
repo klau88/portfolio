@@ -100,4 +100,10 @@ return [
         ],
     ],
 
+    'default' => [
+        'user' => env('ADMIN_USER'),
+        'email' => env('ADMIN_EMAIL'),
+        'password' => env('ADMIN_PASSWORD')
+    ]
+
 ];

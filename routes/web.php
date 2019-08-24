@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AppController@home')->name('home');
+
+Route::resource('projects', 'ProjectController');
+Route::resource('skills', 'SkillController');
+Route::resource('tags', 'TagController');
