@@ -14,7 +14,12 @@ class CreateProjectTagTable extends Migration
     public function up()
     {
         Schema::create('project_tag', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('tag_id');
+
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('tag_id')->references('id')->on('tags');
+
             $table->timestamps();
         });
     }
