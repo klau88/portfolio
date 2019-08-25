@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Project;
 
 class AppController extends Controller
 {
-    public function home(){
+    public function home()
+    {
+        $projects = Project::all();
+
         return view('home');
     }
 }
