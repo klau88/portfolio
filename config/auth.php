@@ -98,12 +98,6 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-    ],
-
-    'default' => [
-        'user' => env('ADMIN_USER'),
-        'email' => env('ADMIN_EMAIL'),
-        'password' => env('ADMIN_PASSWORD')
     ]
 
 ];

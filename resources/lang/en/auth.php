@@ -16,4 +16,12 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'admin' => [
+        'create' => [
+            'name' => 'What is your name?',
+            'email' => 'What is your email address?',
+            'password' => 'What is your password? The password must be at least 6 characters long and contain at least one capital letter and a digit.',
+            'password_confirmation' => 'Confirm password:'
+        ]
+    ]
 ];
