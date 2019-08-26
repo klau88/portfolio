@@ -4,7 +4,7 @@
     <form method="post" action="{{ route('projects.store') }}">
         <h1>Create Project</h1>
         <hr>
-        
+
         @csrf
 
         <div class="form-group row">
@@ -28,6 +28,7 @@
         @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+
         <div class="form-group row">
             <div class="col-sm-10">
                 <button class="btn btn-primary" type="submit">{{ trans('form.create') }}</button>
