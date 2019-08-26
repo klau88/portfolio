@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="row">
-        Logged in!
+        <h1>Dashboard</h1>
 
-        {{ auth()->user() }}
+
     </div>
 @endsection

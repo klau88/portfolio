@@ -7,10 +7,12 @@
         </ul>
         <div class="navbar-nav">
             <form method="post" action="{{ route('logout') }}">
-                @crsf
-                <button class="btn nav-link btn-link" type="submit">
-                    {{ trans('auth.admin.logout') }}
-                </button>
+                @csrf
+                @if(auth()->check())
+                    <button class="btn nav-link btn-link" type="submit">
+                        {{ trans('auth.admin.logout') }}
+                    </button>
+                @endif
             </form>
         </div>
     </nav>
