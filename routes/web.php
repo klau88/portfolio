@@ -13,6 +13,11 @@
 
 Route::get('/', 'AppController@home')->name('home');
 
+Route::get('login', 'AuthController@login')->middleware('guest');
+Route::post('login', 'AuthController@postLogin')->name('login.post');
+Route::get('admin', 'AuthController@admin')->name('admin');
+Route::post('logout', 'AuthController@logout')->name('logout');
+
 Route::resource('projects', 'ProjectController');
 Route::resource('skills', 'SkillController');
 Route::resource('tags', 'TagController');

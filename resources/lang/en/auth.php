@@ -22,6 +22,12 @@ return [
             'email' => 'What is your email address?',
             'password' => 'What is your password? The password must be at least 6 characters long and contain at least one capital letter and a digit.',
             'password_confirmation' => 'Confirm password:'
-        ]
+        ],
+        'login' => [
+            'name' => 'Name',
+            'password' => 'Password',
+            'submit' => 'Log in'
+        ],
+        'logout' => 'Log out'
     ]
 ];
