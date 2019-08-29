@@ -10,11 +10,16 @@ class Project extends Model
 
     public function skills()
     {
-        return $this->belongsToMany('skills', 'project_skill');
+        return $this->belongsToMany('App\Skill', 'project_skill');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('projects', 'project_tag');
+        return $this->belongsToMany('App\Tag', 'project_tag');
+    }
+
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
     }
 }
