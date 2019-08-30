@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <form method="post" action="{{ route('projects.update', compact('project')) }}">
+    <form method="post" action="{{ route('projects.update', compact('project')) }}" id="project-form">
         <h1>Edit Project</h1>
         <hr>
 
@@ -29,13 +29,21 @@
         @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button class="btn btn-primary" type="submit">{{ trans('form.update') }}</button>
-            </div>
-        </div>
     </form>
+
+    @include('images.upload', ['imageableType' => 'App\Project', 'imageableId' => $project->id])
+
+    @foreach($project->images as $image)
+        <div class="d-flex justify-content-around">
+            <img width="500" src="{{ asset('images/'.$image->name) }}">
+        </div>
+    @endforeach
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button class="btn btn-primary" type="submit" form="project-form">{{ trans('form.update') }}</button>
+        </div>
+    </div>
     <form method="post" action="{{ route('projects.destroy', compact('project')) }}">
         @csrf
         @method('DELETE')

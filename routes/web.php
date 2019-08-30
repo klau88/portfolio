@@ -17,7 +17,7 @@ Route::get('login', 'AuthController@login')->name('login')->middleware('guest');
 Route::post('login', 'AuthController@postLogin')->name('login.post');
 Route::get('admin', 'AuthController@admin')->name('admin');
 Route::post('logout', 'AuthController@logout')->name('logout');
-Route::post('upload', 'FileController@save')->name('file.upload');
+Route::post('upload', 'ImageController@save')->name('image.save');
 
 Route::resource('projects', 'ProjectController');
 Route::resource('skills', 'SkillController');
