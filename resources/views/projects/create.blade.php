@@ -2,7 +2,7 @@
 
 @section('content')
     <form method="post" action="{{ route('projects.store') }}">
-        <h1>Create Project</h1>
+        <h1>{{ trans('form.create') }} {{ trans('app.project') }}</h1>
         <hr>
 
         @csrf

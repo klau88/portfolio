@@ -2,7 +2,14 @@
 
 @section('content')
     <form method="post" action="{{ route('projects.update', compact('project')) }}" id="project-form">
-        <h1>Edit Project</h1>
+        <div class="row mt-3">
+            <h3 class="col-sm-10 col-xs-12 text-sm-left text-center">{{ trans('form.edit') }} {{ trans('app.project') }}</h3>
+            <div class="col-sm-2 col-xs-12 text-sm-right text-center">
+                <a class="btn btn-success" href="{{ route('projects.index') }}">{{ trans('form.overview') }}</a>
+                <a class="btn btn-primary" href="{{ route('projects.show', ['id' => $project->id]) }}">{{ trans('form.show') }}</a>
+            </div>
+        </div>
+
         <hr>
 
         @csrf
