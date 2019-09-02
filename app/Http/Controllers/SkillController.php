@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Skill;
-use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
@@ -35,7 +34,7 @@ class SkillController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         Skill::create(request()->validate([
             'title' => 'required|max:255',
@@ -53,7 +52,7 @@ class SkillController extends Controller
      */
     public function show(Skill $skill)
     {
-        return redirect()->route('skills.show', compact('skill'));
+        return view('skills.show', compact('skill'));
     }
 
     /**
@@ -64,7 +63,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        return redirect()->route('skills.edit', compact('skill'));
+        return view('skills.edit', compact('skill'));
     }
 
     /**
