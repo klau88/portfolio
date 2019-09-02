@@ -11,5 +11,7 @@ return [
     'edit' => 'Edit',
     'update' => 'Update',
     'delete' => 'Delete',
-    'overview' => 'Overview'
+    'overview' => 'Overview',
+    'start' => 'Start',
+    'end' => 'End'
 ];
