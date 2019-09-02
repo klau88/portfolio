@@ -45,7 +45,9 @@ class ProjectController extends Controller
     {
         Project::create(request()->validate([
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'start' => 'date|nullable',
+            'end' => 'date|nullable'
         ]));
 
         return redirect()->route('projects.index');
@@ -54,7 +56,7 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
@@ -65,7 +67,7 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
@@ -76,14 +78,16 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Project  $project
+     * @param \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function update(Project $project)
     {
         $project->update(request()->validate([
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'start' => 'date|nullable',
+            'end' => 'date|nullable'
         ]));
 
         return redirect()->route('projects.edit', compact('project'));

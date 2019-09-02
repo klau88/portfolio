@@ -15,27 +15,13 @@
         @csrf
         @method('PATCH')
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="title">{{ trans('form.title') }}</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control {{ $errors->has('title') ? 'border-danger' : '' }}" name="title" value="{{ $project->title }}" required>
-            </div>
-        </div>
+        @include('inputs.text', ['field' => 'title', 'value' => $project->title, 'placeholder' => trans('form.title')])
 
-        @error('title')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @include('inputs.textarea', ['field' => 'description', 'value' => $project->description, 'placeholder' => trans('form.description')])
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="description">{{ trans('form.description') }}</label>
-            <div class="col-sm-10">
-                <textarea class="form-control {{ $errors->has('description') ? 'border-danger' : '' }}" name="description" required>{{ $project->description }}</textarea>
-            </div>
-        </div>
+        @include('inputs.date', ['field' => 'start', 'value'=> $project->start, 'placeholder' => trans('form.start')])
 
-        @error('description')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @include('inputs.date', ['field' => 'end', 'value'=> $project->end, 'placeholder' => trans('form.end')])
     </form>
 
     @include('images.upload', ['imageableType' => 'App\Project', 'imageableId' => $project->id])

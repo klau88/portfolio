@@ -15,27 +15,9 @@
         @csrf
         @method('PATCH')
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="title">{{ trans('form.title') }}</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control {{ $errors->has('title') ? 'border-danger' : '' }}" name="title" value="{{ $skill->title }}" required>
-            </div>
-        </div>
+        @include('inputs.text', ['field' => 'title', 'value' => $skill->title, 'placeholder' => trans('form.title')])
 
-        @error('title')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="description">{{ trans('form.description') }}</label>
-            <div class="col-sm-10">
-                <textarea class="form-control {{ $errors->has('description') ? 'border-danger' : '' }}" name="description" required>{{ $skill->description }}</textarea>
-            </div>
-        </div>
-
-        @error('description')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @include('inputs.textarea', ['field' => 'description', 'value' => $skill->description, 'placeholder' => trans('form.description')])
     </form>
 
     <div class="form-group row">
