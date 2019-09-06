@@ -20,10 +20,11 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+// const images = require.context('./', true, /\.vue$/i);
+// images.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], images(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('form-component', require('./components/FormComponent').default);
+Vue.component('modal', require('./components/Modal').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,5 +33,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#container',
 });
