@@ -22,7 +22,6 @@ class Errors {
     }
 
     record(errors) {
-        // console.log(errors);
         this.errors = errors;
     }
 

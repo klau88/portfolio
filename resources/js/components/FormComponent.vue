@@ -8,14 +8,11 @@
             <input type="hidden" name="_token" :value="csrf">
             <input v-if="method" type="hidden" name="_method" :value="method">
 
-            <form-field type="text" field="name" v-model="form.name"></form-field>
-            <div class="alert alert-danger" v-show="form.errors.has('name')">{{ form.errors.get('name') }}</div>
+            <form-field type="text" field="name" v-model="form.name" :form="form"></form-field>
 
-            <form-field type="email" field="email" v-model="form.email" :errors="errors"></form-field>
-            <div class="alert alert-danger" v-show="form.errors.has('email')">{{ form.errors.get('email') }}</div>
+            <form-field type="email" field="email" v-model="form.email" :form="form"></form-field>
 
-            <form-field type="textarea" field="message" v-model="form.message" :errors="errors"></form-field>
-            <div class="alert alert-danger" v-show="form.errors.has('message')">{{ form.errors.get('message') }}</div>
+            <form-field type="textarea" field="message" v-model="form.message" :form="form"></form-field>
 
             <form-field type="submit" field="button" :submit="submit"></form-field>
 
@@ -24,7 +21,6 @@
 </template>
 
 <script>
-    import Errors from "../classes/Errors";
     import Form from "../classes/Form";
     import FormField from "./FormField";
 
@@ -39,7 +35,6 @@
         data() {
             return {
                 disabled: false,
-                errors: new Errors(),
                 form: new Form()
             }
         },
@@ -47,9 +42,7 @@
             onSubmit(){
                 axios.post(this.route, this.form)
                     .then(response => console.log(response.data))
-                    .catch(error => {
-                        this.form.errors.record(error.response.data.errors)
-                    });
+                    .catch(error => this.form.errors.record(error.response.data.errors));
             }
         }
     }

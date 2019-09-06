@@ -7,17 +7,14 @@
                 <textarea v-if="type === 'textarea'" class="form-control" :name="field" :placeholder="field" @input="update(field, $event.target.value)"></textarea>
                 <button v-if="type === 'submit'" :type="type" class="btn btn-primary" v-text="submit"></button>
             </div>
-<!--            <div v-if="type !== 'submit'" class="alert alert-danger" v-show="form.errors.any()">{{ form.errors }}</div>-->
         </div>
+        <div v-if="type !== 'submit'" class="alert alert-danger" v-show="form.errors.has(field)">{{ form.errors.get(field) }}</div>
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('mounted form-field');
-        },
-        props: ['type', 'field', 'submit'],
+        props: ['type', 'field', 'submit', 'form'],
         methods: {
             update(name, value) {
                 this.$emit('input', value);
