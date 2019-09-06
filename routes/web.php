@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'AppController@home')->name('home');
+Route::get('/contact', 'AppController@contact')->name('contact');
 
 Route::get('login', 'AuthController@login')->name('login')->middleware('guest');
 Route::post('login', 'AuthController@postLogin')->name('login.post');
