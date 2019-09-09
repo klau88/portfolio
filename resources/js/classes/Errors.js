@@ -13,10 +13,7 @@ class Errors {
     }
 
     get(field) {
-        console.log(field);
-        console.log(this.errors);
         if (this.errors[field]) {
-            console.log('get ' + field);
             return this.errors[field][0];
         }
     }
@@ -26,7 +23,13 @@ class Errors {
     }
 
     clear(field) {
-        delete this.errors[field];
+        if (field) {
+            delete this.errors[field];
+
+            return;
+        }
+
+        this.errors = {};
     }
 }
 

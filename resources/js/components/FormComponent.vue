@@ -1,23 +1,14 @@
 <template>
-    <div>
-        <form method="post" :action="route" id="project-form" @submit.prevent="onSubmit" @keydown="errors.clear($event.target.name)">
-            <h1>{{ title }}</h1>
+    <form :method="method" :action="route" id="project-form" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
+        <input type="hidden" name="_token" :value="csrf">
+        <input v-if="method" type="hidden" name="_method" :value="method">
 
-            <hr>
+        <div v-for="[field,type] in Object.entries(fields)">
+            <form-field :type="type" :field="field" v-model="form[field]" :form="form"></form-field>
+        </div>
 
-            <input type="hidden" name="_token" :value="csrf">
-            <input v-if="method" type="hidden" name="_method" :value="method">
-
-            <form-field type="text" field="name" v-model="form.name" :form="form"></form-field>
-
-            <form-field type="email" field="email" v-model="form.email" :form="form"></form-field>
-
-            <form-field type="textarea" field="message" v-model="form.message" :form="form"></form-field>
-
-            <form-field type="submit" field="button" :submit="submit"></form-field>
-
-        </form>
-    </div>
+        <button type="submit" class="btn btn-primary">{{ submit }}</button>
+    </form>
 </template>
 
 <script>
@@ -28,7 +19,7 @@
         mounted() {
             console.log('mounted form');
         },
-        props: ['route', 'title', 'method', 'csrf', 'fields', 'submit'],
+        props: ['route', 'method', 'csrf', 'fields', 'submit'],
         components: {
             'form-field': FormField
         },
@@ -40,7 +31,7 @@
         },
         methods: {
             onSubmit(){
-                axios.post(this.route, this.form)
+                axios[this.method](this.route, this.form)
                     .then(response => console.log(response.data))
                     .catch(error => this.form.errors.record(error.response.data.errors));
             }
