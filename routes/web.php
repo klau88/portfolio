@@ -23,3 +23,4 @@ Route::post('upload', 'ImageController@save')->name('image.save');
 Route::resource('projects', 'ProjectController');
 Route::resource('skills', 'SkillController');
 Route::resource('tags', 'TagController');
+Route::resource('experiences', 'ExperienceController');
