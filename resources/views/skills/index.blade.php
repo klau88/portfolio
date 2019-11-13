@@ -16,9 +16,9 @@
                 <header class="row d-flex justify-content-between">
                     <h3 class="col-sm-9 col-xs-12">{{ $skill->title }}</h3>
                     <div class="col-sm-3 col-xs-12 text-sm-right text-center">
-                        <a class="btn btn-info" href="{{ route('skills.show', ['id' => $skill->id]) }}"><i class="fas fa-info-circle"></i></a>
-                        <a class="btn btn-primary" href="{{ route('skills.edit', ['id' => $skill->id]) }}"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="{{ route('skills.destroy', ['id' => $skill->id]) }}"><i class="fas fa-trash"></i></a>
+                        <a class="btn btn-info" href="{{ route('skills.show', $skill) }}"><i class="fas fa-info-circle"></i></a>
+                        <a class="btn btn-primary" href="{{ route('skills.edit', $skill) }}"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="{{ route('skills.destroy', $skill) }}"><i class="fas fa-trash"></i></a>
                     </div>
                 </header>
 
