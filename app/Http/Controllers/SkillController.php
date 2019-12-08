@@ -36,7 +36,6 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -52,7 +51,7 @@ class SkillController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Skill $skill
+     * @param Skill $skill
      * @return \Illuminate\Http\Response
      */
     public function show(Skill $skill)
@@ -63,7 +62,7 @@ class SkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Skill $skill
+     * @param Skill $skill
      * @return \Illuminate\Http\Response
      */
     public function edit(Skill $skill)
@@ -74,7 +73,7 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Skill $skill
+     * @param Skill $skill
      * @return \Illuminate\Http\Response
      */
     public function update(Skill $skill)
@@ -90,7 +89,7 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Skill $skill
+     * @param Skill $skill
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
