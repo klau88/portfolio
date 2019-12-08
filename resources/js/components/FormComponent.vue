@@ -1,5 +1,5 @@
 <template>
-    <form :method="method" :action="route" id="project-form" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
+    <form :method="method" :action="route" id="project-form" @submit.prevent="onSubmit" @keydown="onKeyDown">
         <input type="hidden" name="_token" :value="csrf">
         <input v-if="method" type="hidden" name="_method" :value="method">
 
@@ -25,7 +25,6 @@
         },
         data() {
             return {
-                disabled: false,
                 form: new Form()
             }
         },
@@ -34,6 +33,9 @@
                 axios[this.method](this.route, this.form)
                     .then(response => console.log(response.data))
                     .catch(error => this.form.errors.record(error.response.data.errors));
+            },
+            onKeyDown(event){
+                this.form.errors.clear(event.target.name);
             }
         }
     }

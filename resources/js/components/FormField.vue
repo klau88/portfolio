@@ -21,3 +21,9 @@
         }
     }
 </script>
+
+<style>
+    label, input, textarea {
+        text-transform: capitalize;
+    }
+</style>

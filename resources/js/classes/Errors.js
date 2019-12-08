@@ -5,7 +5,7 @@ class Errors {
     }
 
     has(field) {
-        return this.errors.hasOwnProperty(field);
+        return this.errors[field] != null;
     }
 
     any() {
@@ -23,13 +23,7 @@ class Errors {
     }
 
     clear(field) {
-        if (field) {
-            delete this.errors[field];
-
-            return;
-        }
-
-        this.errors = {};
+        this.errors[field] = null;
     }
 }
 
