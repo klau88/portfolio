@@ -14,11 +14,11 @@
         @foreach($tags as $tag)
             <div class="col-12">
                 <header class="row d-flex justify-content-between">
-                    <h3 class="col-sm-9 col-xs-12">{{ $tag->title }}</h3>
+                    <h3 class="col-sm-9 col-xs-12">{{ $tag->name }}</h3>
                     <div class="col-sm-3 col-xs-12 text-sm-right text-center">
                         <a class="btn btn-info" href="{{ route('tags.show', $tag) }}"><i class="fas fa-info-circle"></i></a>
                         <a class="btn btn-primary" href="{{ route('tags.edit', $tag) }}"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger" href="{{ route('tags.destroy', $tag) }}"><i class="fas fa-trash"></i></a>
+                        <a class="btn btn-danger" href="{{ route('tags.destroy', compact('tag')) }}"><i class="fas fa-trash"></i></a>
                     </div>
                 </header>
 

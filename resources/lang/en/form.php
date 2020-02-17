@@ -1,6 +1,7 @@
 <?php
 return [
     'title' => 'Title',
+    'name' => 'Name',
     'back' => 'Back',
     'description' => 'Description',
     'image' => 'Image',

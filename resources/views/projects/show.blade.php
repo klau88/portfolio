@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-4 col-12">
                     @foreach($project->images as $image)
-                        <img width="100%" src="{{ asset('images/'.$image->name) }}">
+                        <img width="100%" src="{{ asset("images/{$image->name}") }}">
                     @endforeach
                 </div>
             </div>

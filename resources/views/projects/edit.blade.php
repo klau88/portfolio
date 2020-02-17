@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-
     <div class="row mt-3">
         <h3 class="col-sm-10 col-xs-12 text-sm-left text-center">{{ trans('form.edit') }} {{ trans('app.project') }}</h3>
         <div class="col-sm-2 col-xs-12 text-sm-right text-center">
@@ -44,7 +43,8 @@
             <button class="btn btn-primary" type="submit" form="project-form">{{ trans('form.update') }}</button>
         </div>
     </div>
-    <form method="post" action="{{ route('projects.destroy', compact('project')) }}">
+
+    <form method="post" action="{{ route('projects.destroy', $project) }}">
         @csrf
         @method('DELETE')
 

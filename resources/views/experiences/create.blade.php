@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <form method="post" action="{{ route('projects.store') }}">
-        <h1>{{ trans('form.create') }} {{ trans('app.project') }}</h1>
+    <form method="post" action="{{ route('experiences.store') }}">
+        <h1>{{ trans('form.create') }} {{ trans('app.experience') }}</h1>
         <hr>
 
         @csrf

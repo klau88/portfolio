@@ -33,14 +33,15 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return void
+     * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
         Tag::create(request()->validate([
-            'title' => 'required'
+            'name' => 'required'
         ]));
+
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -68,14 +69,13 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param Tag $tag
      * @return Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Tag $tag)
     {
         $tag->update(request()->validate([
-            'title' => 'required'
+            'name' => 'required'
         ]));
 
         return redirect()->back();
