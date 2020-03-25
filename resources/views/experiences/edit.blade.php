@@ -13,29 +13,23 @@
     <hr>
 
     <div class="row">
-        <div class="col-sm-6 col-12">
+        <div class="col-12">
             <form method="post" action="{{ route('experiences.update', compact('experience')) }}" id="experience-form">
                 @csrf
                 @method('PATCH')
 
-                @include('inputs.text', ['field' => 'title', 'value' => $experience->title, 'placeholder' => trans('form.title')])
+                @include('inputs.date', ['field' => 'start', 'value' => $experience->start, 'placeholder' => trans('form.start')])
+
+                @include('inputs.date', ['field' => 'end', 'value' => $experience->end, 'placeholder' => trans('form.end')])
+
+                @include('inputs.select', ['field' => 'type_id', 'value' => $experience->type_id, 'placeholder' => trans('form.type'), 'collection' => $types])
+
+                @include('inputs.text', ['field' => 'position', 'value' => $experience->position, 'placeholder' => trans('form.position')])
+
+                @include('inputs.text', ['field' => 'company', 'value' => $experience->company, 'placeholder' => trans('form.company')])
 
                 @include('inputs.textarea', ['field' => 'description', 'value' => $experience->description, 'placeholder' => trans('form.description')])
-
-                @include('inputs.date', ['field' => 'start', 'value'=> $experience->start, 'placeholder' => trans('form.start')])
-
-                @include('inputs.date', ['field' => 'end', 'value'=> $experience->end, 'placeholder' => trans('form.end')])
             </form>
-        </div>
-
-        <div class="col-sm-6 col-12">
-            @include('images.upload', ['imageableType' => 'App\Project', 'imageableId' => $experience->id])
-
-            @foreach($experience->images as $image)
-                <div class="d-flex justify-content-around">
-                    <img width="100%" src="{{ asset('images/'.$image->name) }}">
-                </div>
-            @endforeach
         </div>
     </div>
 

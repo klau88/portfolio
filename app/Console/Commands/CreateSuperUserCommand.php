@@ -39,11 +39,12 @@ class CreateSuperUserCommand extends Command
      */
     public function handle()
     {
-        $credentials = [];
-        $credentials['name'] = $this->ask(trans('auth.admin.create.name'));
-        $credentials['email'] = $this->ask(trans('auth.admin.create.email'));
-        $credentials['password'] = $this->secret(trans('auth.admin.create.password'));
-        $credentials['password_confirmation'] = $this->secret(trans('auth.admin.create.password_confirmation'));
+        $credentials = [
+            'name' => $this->ask(trans('auth.admin.create.name')),
+            'email' => $this->ask(trans('auth.admin.create.email')),
+            'password' => $this->secret(trans('auth.admin.create.password')),
+            'password_confirmation' => $this->secret(trans('auth.admin.create.password_confirmation'))
+        ];
 
         $validator = Validator::make($credentials, [
             'name' => 'required|max:255',

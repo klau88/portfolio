@@ -7,13 +7,17 @@
 
         @csrf
 
-        @include('inputs.text', ['field' => 'title', 'placeholder' => trans('form.title')])
+        @include('inputs.date', ['field' => 'start', 'value' => old('start'), 'placeholder' => trans('form.start')])
+
+        @include('inputs.date', ['field' => 'end', 'value' => old('end'), 'placeholder' => trans('form.end')])
+
+        @include('inputs.select', ['field' => 'type_id', 'placeholder' => trans('form.type'), 'collection' => $types])
+
+        @include('inputs.text', ['field' => 'position', 'placeholder' => trans('form.position')])
+
+        @include('inputs.text', ['field' => 'company', 'placeholder' => trans('form.company')])
 
         @include('inputs.textarea', ['field' => 'description', 'placeholder' => trans('form.description')])
-
-        @include('inputs.date', [ 'field' => 'start', 'value' => old('start'), 'placeholder' => trans('form.start')])
-
-        @include('inputs.date', [ 'field' => 'end', 'value' => old('end'), 'placeholder' => trans('form.end')])
 
         @include('inputs.submit', ['text' => trans('form.create')])
     </form>

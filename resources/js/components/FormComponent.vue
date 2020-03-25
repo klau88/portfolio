@@ -1,7 +1,7 @@
 <template>
-    <form :method="method" :action="route" id="project-form" @submit.prevent="onSubmit" @keydown="onKeyDown">
+    <form :method="method" :action="action" id="project-form" @submit.prevent="onSubmit" @keydown="onKeyDown">
         <input type="hidden" name="_token" :value="csrf">
-        <input v-if="method" type="hidden" name="_method" :value="method">
+        <input type="hidden" name="_method" :value="hiddenMethod">
 
         <div v-for="[field,type] in Object.entries(fields)">
             <form-field :type="type" :field="field" v-model="form[field]" :form="form"></form-field>
@@ -19,7 +19,7 @@
         mounted() {
             console.log('mounted form');
         },
-        props: ['route', 'method', 'csrf', 'fields', 'submit'],
+        props: ['action', 'method', 'hiddenMethod', 'csrf', 'fields', 'submit'],
         components: {
             'form-field': FormField
         },
@@ -30,7 +30,7 @@
         },
         methods: {
             onSubmit(){
-                axios[this.method](this.route, this.form)
+                axios[this.method](this.action, this.form)
                     .then(response => console.log(response.data))
                     .catch(error => this.form.errors.record(error.response.data.errors));
             },

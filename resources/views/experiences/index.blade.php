@@ -14,7 +14,7 @@
     @foreach($experiences as $experience)
     <div class="col-12">
         <header class="row d-flex justify-content-between">
-            <h3 class="col-sm-9 col-xs-12">{{ $experience->title }}</h3>
+            <h3 class="col-sm-9 col-xs-12">{{ $experience->company }}</h3>
             <div class="col-sm-3 col-xs-12 text-sm-right text-center">
                 <a class="btn btn-info" href="{{ route('experiences.show', $experience) }}"><i class="fas fa-info-circle"></i></a>
                 <a class="btn btn-primary" href="{{ route('experiences.edit', $experience) }}"><i class="fas fa-edit"></i></a>
@@ -24,7 +24,10 @@
 
         <div class="row">
             <div class="col-12">
-                {{ $experience->description }}
+                <span class="text-info">{{ $experience->start }} - {{ $experience->end }}</span>
+                <div class="text-dark">
+                    {{ $experience->description }}
+                </div>
             </div>
         </div>
     </div>

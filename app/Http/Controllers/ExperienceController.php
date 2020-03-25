@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Experience;
+use App\JobType;
+use JobTypesTableSeeder;
 
 class ExperienceController extends Controller
 {
@@ -33,7 +35,7 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        return view('experiences.create');
+        return view('experiences.create', ['types' => JobType::all()]);
     }
 
     /**
@@ -49,7 +51,7 @@ class ExperienceController extends Controller
             'type_id' => 'required|int',
             'position' => 'required',
             'company' => 'required',
-            'description' => 'text'
+            'description' => 'nullable'
         ]));
 
         return redirect()->route('experiences.index');
@@ -74,7 +76,7 @@ class ExperienceController extends Controller
      */
     public function edit(Experience $experience)
     {
-        return view('experiences.edit', compact('experience'));
+        return view('experiences.edit', compact('experience'), ['types' => JobType::all()]);
     }
 
     /**
@@ -91,7 +93,7 @@ class ExperienceController extends Controller
             'type_id' => 'required|int',
             'position' => 'required',
             'company' => 'required',
-            'description' => 'text'
+            'description' => 'nullable'
         ]));
 
         return redirect()->back();

@@ -17,7 +17,7 @@ class CreateExperiencesTable extends Migration
             $table->bigIncrements('id');
             $table->date('start');
             $table->date('end');
-            $table->integer('type_id');
+            $table->unsignedBigInteger('type_id');
             $table->string('position');
             $table->string('company');
             $table->string('description');

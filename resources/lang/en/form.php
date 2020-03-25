@@ -14,5 +14,8 @@ return [
     'delete' => 'Delete',
     'overview' => 'Overview',
     'start' => 'Start',
-    'end' => 'End'
+    'end' => 'End',
+    'type_id' => 'Type',
+    'position' => 'Position',
+    'company' => 'Company name'
 ];
